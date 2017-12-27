@@ -1,0 +1,24 @@
+#!/usr/bin/env perl
+use feature 'say';
+use Math::Round;
+
+# Laptop CPU PGA ~= .2 oz
+
+for (;;) {
+  print 'mPGA Count> ';
+  $pga_nosync = <>;
+
+  print 'Price> ';
+  $price = <>;
+
+  print 'Shipping cost> ';
+  $shipping = <>;
+
+  $lb = ($shipping + $price) / ($pga_nosync * .01250);
+  say 'Price/LB: $'
+      . nearest(.01, $lb)
+      . "\n"
+      ;
+}
+
+exit 0;

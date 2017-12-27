@@ -1,0 +1,28 @@
+#!/usr/bin/env perl
+use feature 'say';
+use Math::Round;
+
+#    DIMM ~= .8 oz
+# SO-DIMM ~= .3 oz
+
+for (;;) {
+  print 'Desktop DIMM count> ';
+  $n_dimms = <>;
+
+  print 'Laptop SO-DIMM count> ';
+  $n_sodimms = <>;
+
+  print 'Price> ';
+  $price = <>;
+
+  print 'Shipping cost> ';
+  $shipping = <>;
+
+  $lb = ($shipping + $price) / ($n_dimms * .05000 + $n_sodimms * .01875);
+  say 'Price/LB: $'
+      . nearest(.01, $lb)
+      . "\n"
+      ;
+}
+
+exit 0;
